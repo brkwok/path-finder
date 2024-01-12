@@ -1,0 +1,30 @@
+.nav-container {
+  height: 45px;
+  border-bottom: 1px black solid;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-container div {
+  display:flex;
+  
+}
+
+.nav-container div button {
+  background-color: red;
+  width: 100px;
+  height: auto;
+  margin: 0 0.5rem;
+  padding: 0.25rem 0;
+  border-radius: 0.25rem;
+  border: none;
+}
+
+.nav-container div button:focus {
+  outline: none;
+}
+
+.nav-container div button:hover {
+  cursor: pointer;
+}
