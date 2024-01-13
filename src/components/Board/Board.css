@@ -17,7 +17,7 @@
 }
 
 .grid-actions-container button:focus {
- 
+ outline: none;
 }
 
 .grid-actions-container button:hover {
