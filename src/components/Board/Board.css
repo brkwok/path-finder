@@ -7,13 +7,14 @@
 }
 
 .grid-actions-container button {
-  background-color: red;
+  background-color: white;
   width: 100px;
   height: auto;
   margin: 0 0.5rem;
   padding: 0.25rem 0;
   border-radius: 0.25rem;
-  border: none;
+  border: 1px royalblue;
+  font-family: 'Oswald' , sans-serif;
 }
 
 .algo-container {
@@ -25,13 +26,13 @@
 }
 
 .algo-container button {
-  background-color: royalblue;
+  background-color: white;
   width: 100px;
   height: auto;
   margin: 0 0.5rem;
   padding: 0.25rem 0;
   border-radius: 0.25rem;
-  border: 5px crimson solid;
+  border: 1px crimson solid;
   font-family: 'Oswald', sans-serif;
 }
 
@@ -49,10 +50,14 @@ transition-duration: 0.5s;
 
 .grid-actions-container button:focus {
  outline: none;
+ background-color: royalblue;
 }
 
 .grid-actions-container button:hover {
   cursor: pointer;
+  background-color: royalblue;
+  transition: all;
+  transition-duration: 0.5s;
 }
 
 .grid-container {
