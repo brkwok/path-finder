@@ -13,8 +13,9 @@
   margin: 0 0.5rem;
   padding: 0.25rem 0;
   border-radius: 0.25rem;
-  border: 1px royalblue solid;
+  border: 2px royalblue solid;
   font-family: 'Oswald' , sans-serif;
+  
 }
 
 .algo-container {
@@ -32,7 +33,7 @@
   margin: 0 0.5rem;
   padding: 0.25rem 0;
   border-radius: 0.25rem;
-  border: 1px crimson solid;
+  border: 2px crimson solid;
   font-family: 'Oswald', sans-serif;
 }
 
