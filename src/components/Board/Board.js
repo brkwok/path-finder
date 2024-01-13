@@ -3,6 +3,7 @@ import Grid from "./Grid";
 
 import "./Board.css";
 import { useBoard } from "../../hooks/useBoard";
+import Algo from "./Algo";
 
 const Board = () => {
   const [board, setBoard] = useBoard();
@@ -11,6 +12,7 @@ const Board = () => {
 		<>
 			<GridActions />
 			<Grid board={board}/>
+			<Algo />
 		</>
 	);
 };
