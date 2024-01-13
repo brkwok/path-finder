@@ -16,6 +16,37 @@
   border: none;
 }
 
+.algo-container {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.algo-container button {
+  background-color: royalblue;
+  width: 100px;
+  height: auto;
+  margin: 0 0.5rem;
+  padding: 0.25rem 0;
+  border-radius: 0.25rem;
+  border: 5px crimson solid;
+  font-family: 'Oswald', sans-serif;
+}
+
+.algo-container button:focus {
+  outline: none;
+  background-color: crimson;
+}
+
+.algo-container button:hover {
+cursor: pointer;
+background-color: crimson;
+transition:all;
+transition-duration: 0.5s;
+}
+
 .grid-actions-container button:focus {
  outline: none;
 }
