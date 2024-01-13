@@ -13,9 +13,7 @@
   margin: 0 0.5rem;
   padding: 0.25rem 0;
   border-radius: 0.25rem;
-  border: 2px royalblue solid;
-  font-family: 'Oswald' , sans-serif;
-  
+  border: 2px royalblue solid;  
 }
 
 .algo-container {
@@ -34,7 +32,6 @@
   padding: 0.25rem 0;
   border-radius: 0.25rem;
   border: 2px crimson solid;
-  font-family: 'Oswald', sans-serif;
 }
 
 .algo-container button:focus {
@@ -79,4 +76,8 @@ transition-duration: 0.5s;
   width: 15px;
   border: 1px rgb(24, 22, 5) solid;
   background-color: white;
+}
+
+#cell-wall {
+  background-color: aquamarine
 }
