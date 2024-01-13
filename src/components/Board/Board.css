@@ -7,7 +7,7 @@
 }
 
 .grid-actions-container button {
-  background-color: white;
+  background-color: rgb(120, 240, 140);
   width: 100px;
   height: auto;
   margin: 0 0.5rem;
@@ -27,7 +27,7 @@
 }
 
 .algo-container button {
-  background-color: white;
+  background-color: rgb(120, 240, 140);
   width: 100px;
   height: auto;
   margin: 0 0.5rem;
@@ -77,5 +77,6 @@ transition-duration: 0.5s;
 .cell {
   height: 15px;
   width: 15px;
-  border: 1px black solid;
+  border: 1px rgb(24, 22, 5) solid;
+  background-color: white;
 }
