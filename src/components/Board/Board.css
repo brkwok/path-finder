@@ -46,17 +46,22 @@ transition:all;
 transition-duration: 0.5s;
 }
 
+
+.grid-actions-container .button-active {
+  background-color: darkgray
+}
+
 .grid-actions-container button:focus {
  outline: none;
  background-color: royalblue;
-}
+} 
 
 .grid-actions-container button:hover {
   cursor: pointer;
   background-color: royalblue;
   transition: all;
   transition-duration: 0.5s;
-}
+} 
 
 .grid-container {
   padding: 1rem;
@@ -77,3 +82,4 @@ transition-duration: 0.5s;
   border: 1px rgb(24, 22, 5) solid;
   background-color: aquamarine;
 }
+

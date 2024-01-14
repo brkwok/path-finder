@@ -1,6 +1,12 @@
 import Cell from "./Cell";
 
-const Grid = ({ board, setBoard, handleMouseEnter, isMouseDown }) => {
+const Grid = ({
+	board,
+	setBoard,
+	handleMouseEnter,
+	isMouseDown,
+	handleClick,
+}) => {
 	return (
 		<div className="grid-container">
 			{board.map((rows, i) => {
@@ -11,6 +17,7 @@ const Grid = ({ board, setBoard, handleMouseEnter, isMouseDown }) => {
 								<Cell
 									isMouseDown={isMouseDown}
 									handleMouseEnter={handleMouseEnter}
+									handleClick={handleClick}
 									cell={cell}
 									setBoard={setBoard}
 									row={i}

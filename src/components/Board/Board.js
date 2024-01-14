@@ -41,6 +41,18 @@ const Board = () => {
 			setBoard(b);
 		}
 	};
+
+	const handleClick = (row, col) => {
+		if (isSettingWall) {
+			const b = board.slice();
+			const cell = b[row][col];
+
+			if (cell.type === "cell-empty") {
+				cell.type = "cell-wall";
+			}
+			setBoard(b);
+		}
+	};
 	return (
 		<div onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
 			<GridActions
@@ -57,6 +69,7 @@ const Board = () => {
 				setBoard={setBoard}
 				isMouseDown={isMouseDown}
 				handleMouseEnter={handleMouseEnter}
+				handleClick={handleClick}
 			/>
 			<Algo />
 		</div>
