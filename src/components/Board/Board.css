@@ -48,7 +48,7 @@ transition-duration: 0.5s;
 
 
 .grid-actions-container .button-active {
-  background-color: darkgray
+  background-color: royalblue
 }
 
 .grid-actions-container button:focus {
