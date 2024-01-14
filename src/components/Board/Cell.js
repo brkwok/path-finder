@@ -1,11 +1,8 @@
+import "./Cell.css";
 
-const Cell = ({cell}) => {
-  
-  return (
-    <div className="cell" id={cell.type}>
-      
-    </div>
-  )
-}
+const Cell = ({ cell, uniqueKey, row, col, handleMouseEnter }) => {
 
-export default Cell
+	return <div onMouseEnter={() => handleMouseEnter(row, col)} className="cell" id={cell.type}></div>;
+};
+
+export default Cell;

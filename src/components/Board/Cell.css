@@ -1,0 +1,22 @@
+#cell-wall {
+	animation-name: cell-wall;
+  background-color: black;
+  animation-duration: 1s;
+}
+
+@keyframes cell-wall {
+	0% {
+		transform: scale(0.6);
+		background-color: black;
+	}
+
+	50% {
+		transform: scale(1.2);
+		background-color: black;
+	}
+
+	100% {
+		transform: scale(1);
+		background-color: black;
+	}
+}
