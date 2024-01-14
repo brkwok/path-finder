@@ -34,6 +34,12 @@
   border: 2px crimson solid;
 }
 
+.algo-container button:active {
+  outline: none;
+  background-color: crimson;
+  
+}
+
 .algo-container button:focus {
   outline: none;
   background-color: crimson;
