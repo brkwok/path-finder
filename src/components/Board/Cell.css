@@ -1,7 +1,21 @@
 #cell-wall {
 	animation-name: cell-wall;
-  background-color: black;
+	background-color: black;
+	animation-duration: 1s;
+}
+
+#cell-start {
+	animation-name: cell-start;
+	background-color: aquamarine;
   animation-duration: 1s;
+  border-radius:100%;
+}
+
+#cell-end {
+  animation-name: cell-start;
+  background-color: darkblue;
+  animation-duration: 1s;
+  border-radius: 100%;
 }
 
 @keyframes cell-wall {
@@ -18,5 +32,22 @@
 	100% {
 		transform: scale(1);
 		background-color: black;
+	}
+}
+
+@keyframes cell-start {
+	0% {
+		transform: scale(1);
+		border-radius: 0%;
+	}
+
+	50% {
+		transform: scale(1.2);
+		border-radius: 50%;
+	}
+
+	100% {
+		transform: scale(1);
+		border-radius: 100%;
 	}
 }
