@@ -1,7 +1,7 @@
-const Algo = () => {
+const Algo = ({ handleDFS }) => {
 	return (
 		<div className="algo-container">
-			<button>DFS</button>
+			<button onClick={handleDFS}>DFS</button>
 			<button>BFS</button>
 			<button>Djikstra</button>
 		</div>
