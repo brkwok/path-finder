@@ -17,6 +17,7 @@
   background-color: rgb(0, 0, 192);
   animation-duration: 1s;
   border-radius: 100%;
+  border: 1px rgb(0, 0, 192) solid;
 }
 
 @keyframes cell-wall {
