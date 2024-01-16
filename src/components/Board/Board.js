@@ -105,7 +105,7 @@ const Board = () => {
 				}
 
 				setBoard(newBoard);
-			}, i * 25);
+			}, i * 50);
 		});
 
 
@@ -124,7 +124,7 @@ const Board = () => {
 				}
 
 				setBoard(newBoard);
-			}, i * 25 + timeToDestCell);
+			}, i * 50 + timeToDestCell);
 		})
 	};
 
