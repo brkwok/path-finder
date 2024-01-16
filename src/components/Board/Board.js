@@ -52,18 +52,20 @@ const Board = () => {
 		if (isSettingWall) {
 			if (cell.type === "cell-empty") {
 				cell.type = "cell-wall";
+			} else if (cell.type === "cell-wall") {
+				cell.type = "cell-empty";
 			}
 		} else if (isSettingStart) {
 			// 스타트 셀이 지정이 안되있을 경우 그냥 선택된 셀을 시작으로 설정함
 			if (!startCell) {
 				cell.type = "cell-start";
-			// 그 외엔 기존 설정되있던걸 엠티셀로 변경 후 선택된 셀을 시작셀로 설정
+				// 그 외엔 기존 설정되있던걸 엠티셀로 변경 후 선택된 셀을 시작셀로 설정
 			} else {
 				startCell.type = "cell-empty";
 				cell.type = "cell-start";
 			}
 			setStartCell(cell);
-			
+
 			// 위와 동일
 		} else if (isSettingDest) {
 			if (!endCell) {
@@ -76,7 +78,7 @@ const Board = () => {
 		}
 		setBoard(b);
 	};
-	
+
 	return (
 		<div onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
 			<GridActions
