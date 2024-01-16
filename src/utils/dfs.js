@@ -34,7 +34,7 @@ export class DFS {
 			seen.add(currCell);
 
 			if (currCell === this.end) {
-				return [path, this.stack];
+				return [path, currCell];
 			}
 
 			const row = currCell.row;
@@ -53,12 +53,14 @@ export class DFS {
 				) {
 					continue;
 				}
-
-				this.stack.push(this.board[nextCellRow][nextCellCol]);
+        
+        const nextCell = this.board[nextCellRow][nextCellCol];
+        nextCell.parent = currCell;
+				this.stack.push(nextCell);
 			}
 
 		}
 
-    return [path, this.stack]
+    return [path, null];
 	}
 }

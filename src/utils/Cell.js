@@ -4,5 +4,6 @@ export class DefaultCell {
 		this.type = "cell-empty"
 		this.row = row
 		this.col = col
+		this.parent = null;
 	}
 }

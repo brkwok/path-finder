@@ -92,8 +92,10 @@ const Board = () => {
 	const handleDFS = () => {
 		const dfs = new DFS(startCell, endCell, board);
 
-		const [pathsTaken, pathToDest] = dfs.findPath();
-		const timeAfterPathsTaken = 50 * pathsTaken.length;
+		const [pathsTaken, destCell] = dfs.findPath();
+
+		const timeToDestCell = 50 * pathsTaken.length;
+
 		pathsTaken.forEach((cell, i) => {
 			setTimeout(() => {
 				const newBoard = board.slice();
@@ -103,20 +105,27 @@ const Board = () => {
 				}
 
 				setBoard(newBoard);
-			}, i * 50);
+			}, i * 25);
 		});
 
-		pathToDest.forEach((cell, i) => {
-			setTimeout(() => {
-				const newBoard = board.slice();
 
+		let currCell = destCell
+		const pathsFound = []
+		while (currCell) {
+			pathsFound.push(currCell)
+			currCell = currCell.parent
+		}
+
+		pathsFound.forEach((cell, i) => {
+			setTimeout( () => {
+				const newBoard = board.slice();
 				if (cell !== startCell && cell !== endCell) {
 					cell.type = "cell-path-found";
 				}
 
 				setBoard(newBoard);
-			}, i * 50 + timeAfterPathsTaken);
-		});
+			}, i * 25 + timeToDestCell);
+		})
 	};
 
 	return (

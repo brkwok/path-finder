@@ -20,6 +20,14 @@
   border: 1px rgb(0, 0, 192) solid;
 }
 
+#cell-probe {
+  background-color: red;
+}
+
+#cell-path-found {
+  background-color: blue;
+}
+
 @keyframes cell-wall {
 	0% {
 		transform: scale(0.6);
