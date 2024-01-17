@@ -95,7 +95,7 @@ transition-duration: 0.5s;
 .cell {
   height: 15px;
   width: 15px;
-  border: 1px rgb(0, 0, 0) solid;
+  border: 1px rgb(15, 116, 82) solid;
   background-color: aquamarine;
 }
 
