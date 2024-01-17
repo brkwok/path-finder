@@ -2,10 +2,10 @@ import { ROWS, COLS } from "./constants";
 
 export class DFS {
 	dirs = [
-		[0, 1],
-		[1, 0],
-		[-1, 0],
 		[0, -1],
+		[1, 0],
+		[0, 1],
+		[-1, 0],
 	];
 	constructor(start, end, board) {
 		// DFS는 스택을 사용함, last in first out(LIFO)
@@ -29,7 +29,7 @@ export class DFS {
     // 나중에 리액트쪽에 메시지 디스플레이 해줘야할것같음
 		if (!this.start || !this.end) {
 			console.log("Start or End Missing");
-			return;
+			return [[], null];
 		}
     
     // 이미 방문한 셀들 트랙하기위해 세트 오브젝트 사용

@@ -1,9 +1,11 @@
-const Algo = ({ handleDFS }) => {
+const Algo = ({ handleDFS, algoRunning }) => {
 	return (
 		<div className="algo-container">
-			<button onClick={handleDFS}>DFS</button>
-			<button>BFS</button>
-			<button>Djikstra</button>
+			<button disabled={algoRunning} onClick={handleDFS}>
+				DFS
+			</button>
+			<button disabled={algoRunning}>BFS</button>
+			<button disabled={algoRunning}>Djikstra</button>
 		</div>
 	);
 };

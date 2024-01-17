@@ -11,9 +11,8 @@ import { DFS } from "../../utils/dfs";
 const Board = () => {
 	// 보드 셋업 해주는 커스텀 훅 ../../hooks/useBoard 파일 보면
 	// 커스텀 훅 확인 가능
-	const [board, setBoard, resetBoard] = useBoard();
-	const [startCell, setStartCell] = useState(null);
-	const [endCell, setEndCell] = useState(null);
+	const [board, setBoard, resetBoard, startCell, setStartCell, endCell, setEndCell] = useBoard();
+	const [algoRunning, setAlgoRunning] = useState(false);
 
 	// 지금 이것도 복잡하게 되있는데 나중에 시간 리액트 어느정도 이해하면 커스텀 훅
 	// 직접 만들어보면 좋을것같음
@@ -90,6 +89,7 @@ const Board = () => {
 	};
 
 	const handleDFS = () => {
+		setAlgoRunning(true);
 		const dfs = new DFS(startCell, endCell, board);
 
 		const [pathsTaken, destCell] = dfs.findPath();
@@ -108,16 +108,15 @@ const Board = () => {
 			}, i * 50);
 		});
 
-
-		let currCell = destCell
-		const pathsFound = []
+		let currCell = destCell;
+		const pathsFound = [];
 		while (currCell) {
-			pathsFound.push(currCell)
-			currCell = currCell.parent
+			pathsFound.push(currCell);
+			currCell = currCell.parent;
 		}
 
 		pathsFound.forEach((cell, i) => {
-			setTimeout( () => {
+			setTimeout(() => {
 				const newBoard = board.slice();
 				if (cell !== startCell && cell !== endCell) {
 					cell.type = "cell-path-found";
@@ -125,7 +124,11 @@ const Board = () => {
 
 				setBoard(newBoard);
 			}, i * 50 + timeToDestCell);
-		})
+		});
+
+		setTimeout(() => {
+			setAlgoRunning(false);
+		}, 50 * (pathsFound.length + pathsTaken.length));
 	};
 
 	return (
@@ -138,6 +141,7 @@ const Board = () => {
 				isSettingWall={isSettingWall}
 				isSettingStart={isSettingStart}
 				isSettingDest={isSettingDest}
+				algoRunning={algoRunning}
 			/>
 			<Grid
 				board={board}
@@ -145,8 +149,9 @@ const Board = () => {
 				isMouseDown={isMouseDown}
 				handleMouseEnter={handleMouseEnter}
 				handleClick={handleClick}
+				algoRunning={algoRunning}
 			/>
-			<Algo handleDFS={handleDFS} />
+			<Algo handleDFS={handleDFS} algoRunning={algoRunning} />
 		</div>
 	);
 };

@@ -6,6 +6,7 @@ const GridActions = ({
 	isSettingWall,
 	isSettingStart,
 	isSettingDest,
+	algoRunning,
 }) => {
 	const handleStartButton = (e) => {
 		e.preventDefault();
@@ -37,18 +38,21 @@ const GridActions = ({
 				일단 임시로 버튼으로 만들어놓음
 			*/}
 			<button
+				disabled={algoRunning}
 				className={isSettingStart ? "button-active" : ""}
 				onClick={handleStartButton}
 			>
 				Set Start
 			</button>
 			<button
+				disabled={algoRunning}
 				className={isSettingWall ? "button-active" : ""}
 				onClick={handleWallButton}
 			>
 				Set Walls
 			</button>
 			<button
+				disabled={algoRunning}
 				className={isSettingDest ? "button-active" : ""}
 				onClick={handleDestButton}
 			>
