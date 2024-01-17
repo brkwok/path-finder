@@ -69,6 +69,11 @@ transition-duration: 0.5s;
   transition-duration: 0.5s;
 } 
 
+.grid-actions-container button:disabled {
+  cursor: not-allowed;
+  background-color: gray;
+}
+
 .grid-container {
   padding: 1rem;
   display: flex;
