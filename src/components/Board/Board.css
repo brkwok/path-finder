@@ -101,11 +101,3 @@ transition-duration: 0.5s;
   display: flex;
   flex-direction: row; 
 }
-
-.cell {
-  height: 15px;
-  width: 15px;
-  border: 1px rgb(15, 116, 82) solid;
-  background-color: aquamarine;
-}
-

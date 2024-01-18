@@ -1,3 +1,10 @@
+.cell {
+  height: 15px;
+  width: 15px;
+  border: 1px rgb(15, 116, 82) solid;
+  background-color: aquamarine;
+}
+
 #cell-wall {
 	animation-name: cell-wall;
 	background-color: rgb(255, 0, 0);
