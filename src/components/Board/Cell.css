@@ -25,6 +25,7 @@
   background-color: rgb(243, 247, 22);
   animation-duration: 1s;
   border-radius: 100%;
+  border: 1px rgb(142, 145, 8) solid;
 }
 
 #cell-path-found {
@@ -32,6 +33,7 @@
   background-color: blue;
   animation-duration: 1s;
   border-radius: 100%;
+  border: 1px blue solid;
 }
 
 @keyframes cell-path-found {

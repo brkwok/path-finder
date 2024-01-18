@@ -52,6 +52,16 @@ transition:all;
 transition-duration: 0.5s;
 }
 
+.algo-container button:disabled {
+  cursor: not-allowed;
+  background-color: gray;
+}
+
+.algo-container button:disabled:hover {
+  cursor: not-allowed;
+  background-color: gray;
+}
+
 
 .grid-actions-container .button-active {
   background-color: royalblue
@@ -70,7 +80,7 @@ transition-duration: 0.5s;
 } 
 
 .grid-actions-container button:disabled {
-  cursor: help;
+  cursor: not-allowed;
   background-color: gray;
 }
 
