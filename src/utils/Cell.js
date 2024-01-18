@@ -5,5 +5,6 @@ export class DefaultCell {
 		this.row = row
 		this.col = col
 		this.parent = null;
+		this.opac = 1;
 	}
 }
