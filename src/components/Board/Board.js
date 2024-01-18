@@ -7,7 +7,7 @@ import { useState } from "react";
 import Algo from "./Algo";
 
 import { DFS } from "../../utils/dfs";
-import { AStar } from "../../utils/AStar";
+import { GreedyBestFirstSearch } from "../../utils/GreedyBestFirstSearch";
 
 const Board = () => {
 	// 보드 셋업 해주는 커스텀 훅 ../../hooks/useBoard 파일 보면
@@ -140,10 +140,10 @@ const Board = () => {
 		}, 50 * (pathsFound.length + pathsTaken.length));
 	};
 
-	const handleAStar = () => {
-		const astar = new AStar(startCell, endCell, board);
+	const handleGBFS = () => {
+		const gbfs = new GreedyBestFirstSearch(startCell, endCell, board);
 
-		const [pathsTaken, destCell] = astar.findPath();
+		const [pathsTaken, destCell] = gbfs.findPath();
 
 		const timeToDestCell = 50 * pathsTaken.length;
 
@@ -204,7 +204,7 @@ const Board = () => {
 			/>
 			<Algo
 				handleDFS={handleDFS}
-				handleAStar={handleAStar}
+				handleGBFS={handleGBFS}
 				algoRunning={algoRunning}
 			/>
 		</div>
