@@ -7,11 +7,20 @@ import { useState } from "react";
 import Algo from "./Algo";
 
 import { DFS } from "../../utils/dfs";
+import { AStar } from "../../utils/AStar";
 
 const Board = () => {
 	// 보드 셋업 해주는 커스텀 훅 ../../hooks/useBoard 파일 보면
 	// 커스텀 훅 확인 가능
-	const [board, setBoard, resetBoard, startCell, setStartCell, endCell, setEndCell] = useBoard();
+	const [
+		board,
+		setBoard,
+		resetBoard,
+		startCell,
+		setStartCell,
+		endCell,
+		setEndCell,
+	] = useBoard();
 	const [algoRunning, setAlgoRunning] = useState(false);
 
 	// 지금 이것도 복잡하게 되있는데 나중에 시간 리액트 어느정도 이해하면 커스텀 훅
@@ -131,6 +140,48 @@ const Board = () => {
 		}, 50 * (pathsFound.length + pathsTaken.length));
 	};
 
+	const handleAStar = () => {
+		const astar = new AStar(startCell, endCell, board);
+
+		const [pathsTaken, destCell] = astar.findPath();
+
+		const timeToDestCell = 50 * pathsTaken.length;
+
+		pathsTaken.forEach((cell, i) => {
+			setTimeout(() => {
+				const newBoard = board.slice();
+
+				if (cell !== startCell && cell !== endCell) {
+					cell.type = "cell-probe";
+				}
+
+				setBoard(newBoard);
+			}, i * 50);
+		});
+
+		let currCell = destCell;
+		const pathsFound = [];
+		while (currCell) {
+			pathsFound.push(currCell);
+			currCell = currCell.parent;
+		}
+
+		pathsFound.forEach((cell, i) => {
+			setTimeout(() => {
+				const newBoard = board.slice();
+				if (cell !== startCell && cell !== endCell) {
+					cell.type = "cell-path-found";
+				}
+
+				setBoard(newBoard);
+			}, i * 50 + timeToDestCell);
+		});
+
+		setTimeout(() => {
+			setAlgoRunning(false);
+		}, 50 * (pathsFound.length + pathsTaken.length));
+	};
+
 	return (
 		<div onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
 			<GridActions
@@ -151,7 +202,11 @@ const Board = () => {
 				handleClick={handleClick}
 				algoRunning={algoRunning}
 			/>
-			<Algo handleDFS={handleDFS} algoRunning={algoRunning} />
+			<Algo
+				handleDFS={handleDFS}
+				handleAStar={handleAStar}
+				algoRunning={algoRunning}
+			/>
 		</div>
 	);
 };
