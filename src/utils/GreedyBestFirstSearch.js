@@ -111,7 +111,7 @@ class Heap {
 	}
 }
 
-export class AStar {
+export class GreedyBestFirstSearch {
 	dirs = [
 		[0, -1],
 		[1, 0],
@@ -135,7 +135,8 @@ export class AStar {
 		const seen = new Set();
 
 		while (!this.heap.isEmpty()) {
-			const [_dist, currCell] = this.heap.heapPop();
+			// eslint-disable-next-line no-unused-vars
+			const [dist, currCell] = this.heap.heapPop();
 
 			if (!seen.has(currCell)) {
 				pathsTaken.push(currCell);
