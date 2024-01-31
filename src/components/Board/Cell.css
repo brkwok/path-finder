@@ -5,6 +5,26 @@
   background-color: aquamarine;
 }
 
+#cell-empty {
+  animation: cell-empty;
+  background-color: aquamarine;
+  animation-duration: 1s
+}
+
+@keyframes cell-empty {
+  0% {
+    background-color: white;
+  }
+
+  50% {
+    background-color: blue;
+  }
+
+  100% {
+    background-color: aquamarine;
+  }
+}
+
 #cell-wall {
 	animation-name: cell-wall;
 	background-color: rgb(255, 0, 0);
@@ -80,17 +100,14 @@
 
 @keyframes cell-wall {
 	0% {
-		transform: scale(0.6);
 		background-color: rgb(255, 85, 85);
 	}
 
 	50% {
-		transform: scale(1.2);
 		background-color: rgb(170, 14, 14);
 	}
 
 	100% {
-		transform: scale(1);
 		background-color: rgb(224, 0, 0);
 	}
 }

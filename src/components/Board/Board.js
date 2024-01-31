@@ -192,6 +192,7 @@ const Board = () => {
 		for (let row of newBoard) {
 			for (let cell of row) {
 				cell.type = "cell-wall";
+				cell.visited = false;
 			}
 		}
 
@@ -204,15 +205,15 @@ const Board = () => {
 			setTimeout(() => {
 				const boardFilled = board.slice();
 
-				boardFilled[cell.row][cell.col] = "cell-empty";
+				boardFilled[cell.row][cell.col].type = "cell-empty";
 
 				setBoard(boardFilled);
-			}, 20 * i);
+			}, 20 * i + 1500);
 		});
 
 		setTimeout(() => {
 			setAlgoRunning(false);
-		}, 20 * seq.length);
+		}, 20 * seq.length + 1500);
 	};
 
 	return (
