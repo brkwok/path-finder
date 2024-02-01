@@ -8,7 +8,7 @@
 #cell-empty {
   animation: cell-empty;
   background-color: aquamarine;
-  animation-duration: 1s
+  animation-duration: 0.5s
 }
 
 @keyframes cell-empty {
