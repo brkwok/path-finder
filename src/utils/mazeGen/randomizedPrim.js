@@ -48,13 +48,11 @@ export class RandomizedPrim {
 				cellCol = randomCell.col;
 
 			const randCellNeighbors = this._getNeighbors(cellRow, cellCol);
-			const emptyNeiCells = randCellNeighbors.filter(
-				(c) => c.visited === true
-			);
+			const emptyNeiCells = randCellNeighbors.filter((c) => c.visited === true);
 			const nonEmptyNeiCells = randCellNeighbors.filter(
 				(c) => c.visited === false
 			);
-      
+
 			if (emptyNeiCells.length === 1) {
 				pathSequence.push(randomCell);
 				randomCell.visited = true;
@@ -72,7 +70,11 @@ export class RandomizedPrim {
 			const neiX = row + x,
 				neiY = col + y;
 
-			if (Math.min(neiX, neiY) < 0 || neiX >= ROWS || neiY >= COLS) {
+			if (
+				Math.min(neiX, neiY) < 0 ||
+				neiX >= ROWS ||
+				neiY >= COLS
+			) {
 				continue;
 			}
 
