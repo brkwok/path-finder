@@ -1,7 +1,7 @@
 {
   "name": "path-finder",
   "version": "0.1.0",
-  "homepage": "https://github.com/brkwok/path-finder",
+  "homepage": "https://brkwok.github.io/path-finder/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
