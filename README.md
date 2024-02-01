@@ -20,3 +20,5 @@ Interactive application built with React.js where users can draw their own maze 
 ### Randomized Prim's
 
 ## Contributors
+[brkwok](https://github.com/brkwok)
+[KoreaBeaver](https://github.com/KoreanBeaver)
