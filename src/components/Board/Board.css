@@ -102,3 +102,50 @@ transition-duration: 0.5s;
   display: flex;
   flex-direction: row; 
 }
+
+.maze-gen-container {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.maze-gen-container button {
+  background-color: rgb(120, 240, 140);
+  width: 100px;
+  height: auto;
+  margin: 0 0.5rem;
+  padding: 0.25rem 0;
+  border-radius: 0.25rem;
+  border: 2px royalblue solid;
+  display: inline-block;
+}
+
+.maze-gen-container button:active {
+  outline: none;
+  background-color: royalblue;
+  
+}
+
+.maze-gen-container button:focus {
+  outline: none;
+  background-color: royalblue;
+}
+
+.maze-gen-container button:hover {
+cursor: pointer;
+background-color: royalblue;
+transition:all;
+transition-duration: 0.5s;
+}
+
+.maze-gen-container button:disabled {
+  cursor: not-allowed;
+  background-color: gray;
+}
+
+.maze-gen-container button:disabled:hover {
+  cursor: not-allowed;
+  background-color: gray;
+}
