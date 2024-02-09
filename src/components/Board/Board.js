@@ -1,10 +1,13 @@
 import GridActions from "./GridActions";
 import Grid from "./Grid";
+import MazeGen from "./MazeGen";
 
 import "./Board.css";
 import { useBoard } from "../../hooks/useBoard";
 import { useState } from "react";
 import Algo from "./Algo";
+
+import { RandomizedPrim } from "../../utils/mazeGen/randomizedPrim";
 
 import { DFS } from "../../utils/dfs";
 import { GreedyBestFirstSearch } from "../../utils/GreedyBestFirstSearch";
@@ -182,8 +185,40 @@ const Board = () => {
 		}, 50 * (pathsFound.length + pathsTaken.length));
 	};
 
+	const handleRandomizedPrim = async () => {
+		setAlgoRunning(true);
+		let newBoard = board.slice();
+
+		for (let row of newBoard) {
+			for (let cell of row) {
+				cell.type = "cell-wall";
+				cell.visited = false;
+			}
+		}
+
+		await setBoard(newBoard);
+
+		const prims = new RandomizedPrim(newBoard);
+		const seq = prims.buildMaze();
+
+		seq.forEach((cell, i) => {
+			setTimeout(() => {
+				const boardFilled = board.slice();
+
+				boardFilled[cell.row][cell.col].type = "cell-empty";
+
+				setBoard(boardFilled);
+			}, 20 * i + 1500);
+		});
+
+		setTimeout(() => {
+			setAlgoRunning(false);
+		}, 20 * seq.length + 1500);
+	};
+
 	return (
 		<div onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
+			<MazeGen handleRandomizedPrim={handleRandomizedPrim} algoRunning={algoRunning}/>
 			<GridActions
 				resetBoard={resetBoard}
 				setIsSettingWall={setIsSettingWall}
