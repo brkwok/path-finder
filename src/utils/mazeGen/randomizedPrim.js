@@ -40,15 +40,11 @@ export class RandomizedPrim {
 
 		const walls = [];
 
-		const initNeighbors = this._getNeighbors(startRow, startCol);
-		walls.push(...initNeighbors);
+		walls.push(initCell);
 
 		while (walls.length > 0) {
 			const randomIdx = getRandomInt(walls.length);
 			const randomCell = walls[randomIdx];
-
-			// remove the cell from the random idx
-			walls.splice(randomIdx, 1);
 
 			const cellRow = randomCell.row,
 				cellCol = randomCell.col;
@@ -87,6 +83,8 @@ export class RandomizedPrim {
 				midCell.visited = true;
 				chosenCell.visited = true;
 				walls.push(chosenCell, randomCell);
+			} else {
+				walls.splice(randomIdx, 1)
 			}
 		}
 
