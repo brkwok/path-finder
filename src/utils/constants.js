@@ -1,4 +1,4 @@
-export const ROWS = 20;
-export const COLS = 50;
+export const ROWS = 21;
+export const COLS = 51;
 
 export const DELAY = 30;
