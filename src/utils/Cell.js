@@ -7,5 +7,6 @@ export class DefaultCell {
 		this.parent = null;
 		this.opac = 1;
 		this.visited = false;
+		this.openWall = false;
 	}
 }
