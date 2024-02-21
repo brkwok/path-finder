@@ -8,6 +8,7 @@ import { useState } from "react";
 import Algo from "./Algo";
 
 import { RandomizedPrim } from "../../utils/mazeGen/randomizedPrim";
+import { RecursiveDivision } from "../../utils/mazeGen/recursiveDivision";
 
 import { DFS } from "../../utils/dfs";
 import { GreedyBestFirstSearch } from "../../utils/GreedyBestFirstSearch";
@@ -205,7 +206,7 @@ const Board = () => {
 			setTimeout(() => {
 				const boardFilled = board.slice();
 
-				boardFilled[cell.row][cell.col].type = "cell-empty";
+				cell.type = "cell-empty";
 
 				setBoard(boardFilled);
 			}, 20 * i + 1500);
@@ -216,9 +217,49 @@ const Board = () => {
 		}, 20 * seq.length + 1500);
 	};
 
+	const handleRecursiveDivision = async () => {
+		setAlgoRunning(true);
+		let newBoard = board.slice();
+
+		for (let row of newBoard) {
+			for (let cell of row) {
+				cell.type = "cell-empty";
+				cell.visited = false;
+				cell.openWall = false;
+			}
+		}
+
+		await setBoard(newBoard);
+
+		const recDiv = new RecursiveDivision(newBoard);
+		const seq = recDiv.buildMaze();
+
+		seq.forEach((cell, i) => {
+			setTimeout(() => {
+				const boardFilled = board.slice();
+
+				if (cell.type === "cell-wall" && cell.openWall) {
+					cell.type = "cell-empty";
+				} else {
+					cell.type = "cell-wall";
+				}
+
+				setBoard(boardFilled);
+			}, 20 * i);
+		});
+
+		setTimeout(() => {
+			setAlgoRunning(false);
+		}, 20 * seq.length);
+	};
+
 	return (
 		<div onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
-			<MazeGen handleRandomizedPrim={handleRandomizedPrim} algoRunning={algoRunning}/>
+			<MazeGen
+				handleRandomizedPrim={handleRandomizedPrim}
+				handleRecursiveDivision={handleRecursiveDivision}
+				algoRunning={algoRunning}
+			/>
 			<GridActions
 				resetBoard={resetBoard}
 				setIsSettingWall={setIsSettingWall}
