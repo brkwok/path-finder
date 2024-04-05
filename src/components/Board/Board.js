@@ -11,6 +11,7 @@ import { RandomizedPrim } from "../../utils/mazeGen/randomizedPrim";
 import { RecursiveDivision } from "../../utils/mazeGen/recursiveDivision";
 
 import { DFS } from "../../utils/dfs";
+import { BFS } from "../../utils/bfs";
 import { GreedyBestFirstSearch } from "../../utils/GreedyBestFirstSearch";
 
 const Board = () => {
@@ -99,6 +100,49 @@ const Board = () => {
 			setEndCell(cell);
 		}
 		setBoard(b);
+	};
+
+	const handleBFS = () => {
+		setAlgoRunning(true);
+		const bfs = new BFS(startCell, endCell, board);
+
+		const [pathsTaken, destCell] = bfs.findPath();
+
+		const timeToDestCell = 50 * pathsTaken.length;
+
+		pathsTaken.forEach((cell, i) => {
+			setTimeout(() => {
+				const newBoard = board.slice();
+
+				if (cell !== startCell && cell !== endCell) {
+					cell.type = "cell-probe";
+				}
+
+				setBoard(newBoard);
+			}, i * 50);
+		});
+
+		let currCell = destCell;
+		const pathsFound = [];
+		while (currCell) {
+			pathsFound.push(currCell);
+			currCell = currCell.parent;
+		}
+
+		pathsFound.forEach((cell, i) => {
+			setTimeout(() => {
+				const newBoard = board.slice();
+				if (cell !== startCell && cell !== endCell) {
+					cell.type = "cell-path-found";
+				}
+
+				setBoard(newBoard);
+			}, i * 50 + timeToDestCell);
+		});
+
+		setTimeout(() => {
+			setAlgoRunning(false);
+		}, 50 * (pathsFound.length + pathsTaken.length));
 	};
 
 	const handleDFS = () => {
@@ -281,6 +325,7 @@ const Board = () => {
 			<Algo
 				handleDFS={handleDFS}
 				handleGBFS={handleGBFS}
+				handleBFS={handleBFS}
 				algoRunning={algoRunning}
 			/>
 		</div>
